@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Table start -->
+    <table border="1">
+        <thead> <!-- Table header -->
+           <tr>
+            <th>column1</th> <!-- First column heading -->
+            <th>column2</th> <!-- second column heading -->
+            <th>column3</th><!--  third column heading -->
+            </tr>
+          </thead>
+          <!-- Table body -->
+          <tbody>
+            <tr>
+                <td rowspan="2">row1 cell1</td>
+                <!-- Yeh cell 2 rows tak stretch karega -->
+                <td>row1 cell2</td>
+                <td>row1 cell3</td>
+            </tr>  <!-- Row 2 (FIXED) -->
+            <tr>
+<!-- Yahan pehle cell nahi likhenge kyunki upar wala rowspan=2 le chuka hai -->
+            <td>row2 cell2</td>
+            <td>row2 cell2</td>
+            </tr>
+            <tr>
+                <!-- Row 3 -->
+                <td colspan="3">row3 cell1</td>
+                 <!-- Yeh cell 3 columns cover karega -->
+            </tr>
+            </tbody>
+    </table>
+</body>
+</html>

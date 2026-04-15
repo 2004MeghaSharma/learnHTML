@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> <!-- Jo bhi visible content hai wo yaha likhte hain -->
+    <table border="1">
+                <!-- Table start, border="1" ek simple visible border deta hai (old method, CSS better hota hai) -->
+       <thead>
+          <!-- Table ka header section, semantic importance hoti hai (SEO + accessibility) -->
+        <tr> <!-- Header row start -->
+            <th>name</th>
+                        <!-- First column heading: "name" (default bold + center aligned hota hai) -->
+            <th colspan="2">Contact Info</th>
+            <!-- Yeh ek hi cell 2 columns ko cover kar raha hai -->
+            <!-- Matlab niche ke 2 columns (phone + email) iske under grouped hain -->
+        </tr>
+       </thead>
+
+       <tbody>
+                <!-- Table ka main data section, browser isse alag treat karta hai -->
+        <tr> <!-- Row 1 -->
+            <td>john doe</td>  <!-- Column 1: name -->
+            <td>4362723674</td> <!-- Column 2: phone number -->
+            <td>john@example.com</td> <!-- Column 3: email -->
+        </tr>
+        <tr>
+            <td>cooper</td>
+            <td>3457875567</td>
+            <td>cooper@example.com</td>
+        </tr>
+        <tr>
+            <td>mohan</td>
+            <td>8865357645</td>
+            <td>mohan@example.com</td>
+             <!-- IMPORTANT CONCEPT:
+        Har row me total columns = 3 hone chahiye
+        Header me bhi effectively 3 columns hain:
+        - 1 (name)
+        - 2 (Contact Info via colspan)
+        -->
+
+        <!-- Table internally ek grid hoti hai:
+        Row 1: [Name] [Phone] [Email]
+        Row 2: [Name] [Phone] [Email]
+        -->
+        </tr>
+        </tbody>
+    </table> <!--table end-->
+</body>
+</html>
