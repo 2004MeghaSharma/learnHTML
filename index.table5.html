@@ -1,14 +1,18 @@
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- Tells browser to use HTML5 parsing mode -->
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <!-- Metadata: not rendered, used by browser + SEO -->
+    <meta charset="UTF-8"> <!-- Character encoding (supports all symbols) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
+        <!-- Table starts: border="1" is old HTML styling (CSS preferred) -->
     <table border="1">
+                <!-- THEAD = semantic grouping for header (helps accessibility + screen readers) -->
         <thead>
-            <tr>
+            <tr> <!-- Table Row -->
+                 <!-- TH = header cells (bold + centered by default) -->
             <th>level1</th>
             <th>level2</th>
             <th>level3</th>
@@ -16,14 +20,69 @@
             <th>level5</th>
             </tr>
         </thead>
-
+ <!-- TBODY = main data area -->
         <tbody>
             <tr>
-                <td rowspan="">system</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <!-- 
+            🔥 ROWSPAN LOGIC STARTS HERE
+
+            rowspan="6" means:
+            This single <td> occupies 6 vertical rows in column 1.
+
+            So next 5 rows will NOT need a <td> in column 1.
+            -->
+                <td rowspan="6">system</td>
+                  <!-- Occupies column 2 for 4 rows -->
+                <td rowspan="4">system apps</td>
+                 <!-- ⚠️ Extra space in "3 " is a parsing issue -->
+                <!-- Occupies column 3 for 3 rows -->
+                <td rowspan="3 ">system env</td>
+                <td>app test</td>
+                 <!-- Occupies column 5 for 2 rows -->
+                <td rowspan="2">fro</td>
+            </tr>
+            <tr>
+                 <!-- 
+            This row is missing:
+            - column 1 (covered by rowspan=6)
+            - column 2 (rowspan=4)
+            - column 3 (rowspan=3)
+            - column 5 (rowspan=2)
+
+            So ONLY one <td> is needed → column 4
+            -->
+                <td>app memory</td>
+            </tr>
+            <tr>
+                 <!-- 
+            column 3 still covered (rowspan=3 ends after this row)
+            -->
+                <td>app test</td>
+                <!-- New rowspan begins in column 5 -->
+                <td rowspan="2">bar</td>
+            </tr>
+            <tr>
+                 <!-- 
+            Now column 3 is free again (rowspan ended)
+            -->
+                <td>system env 2</td>
+                <td>app memory</td>
+            </tr>
+             <!-- 
+            colspan="2" means:
+            This cell takes BOTH column 2 and column 3
+
+            rowspan="2" → affects next row too
+            -->
+            <tr>
+                <td rowspan="2" colspan="2">system memory</td>
+                <td>memory func</td>
+                <td>foo</td>
+            </tr>
+            <tr>
+                <!-- Final row -->
+                <td>apes test</td>
+                <td>bar</td>
             </tr>
         </tbody>
     </table>
